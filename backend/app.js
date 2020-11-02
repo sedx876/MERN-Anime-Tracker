@@ -1,3 +1,4 @@
+const adminRoute = require('./routes/admin');
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
@@ -15,7 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/static', express.static(path.join(`${__dirname}/public`)));
 
-app.get('/', (req, res) => res.send('Home Route'));
+app.use('/', adminRoute);
 
 const port = process.env.PORT || 8080;
 
